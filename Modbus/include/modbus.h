@@ -14,7 +14,7 @@
 
 /* API接口 -------------------------------------------------------------------*/
 eMBError    modbus_SlaveInit(eMBMode mode, uint8_t slaveAddr);
-eMBError    modbus_SlaveDeal(uint8_t *buffer, uint8_t *length);
+eMBError    modbus_SlaveDeal(uint8_t *buffer, uint16_t *length);
 
 /* 回调函数 ------------------------------------------------------------------*/
 eMBError    modbus_SlaveRegHoldingCB(uint8_t *regBuf, uint16_t startAddr,
