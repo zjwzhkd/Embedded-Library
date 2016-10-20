@@ -12,14 +12,8 @@
 /* 头文件 --------------------------------------------------------------------*/
 #include "modbus_proto.h"
 
-/* 格式定义 ------------------------------------------------------------------*/
-#define MB_RTU_ADU_SIZE_MIN             ( 4 )
-#define MB_RTU_ADU_SIZE_MAX             ( 256 )
-#define MB_RTU_ADU_SIZE_CRC             ( 2 )
-#define MB_RTU_ADU_ADDR_OFF             ( 0 )
-#define MB_RTU_ADU_PDU_OFF              ( 1 )
-
 /* 处理函数 ------------------------------------------------------------------*/
+void MBRTUInit(uint8_t *pBuf, uint16_t *pBufLen);
 bool MBRTUReceive(uint8_t *pRcvAddr, uint8_t **pFrame, uint16_t *pLength);
 void MBRTUTransmit(uint8_t slaveAddr, uint8_t const *pFrame, uint16_t length);
 
