@@ -18,6 +18,7 @@ typedef enum
 {
     MB_OK = 0,              /* 无错误         */
     MB_ERR_INVAL,           /* 无效参数       */
+    MB_ERR_IGNORED,         /* 忽略接收数据帧 */
     MB_ERR_NOREG,           /* 无效寄存器地址 */
     MB_ERR_IO,              /* I/O错误        */
     MB_ERR_TIMEOUT          /* 超时错误发生   */

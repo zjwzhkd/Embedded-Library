@@ -13,6 +13,16 @@
 #include "modbus_proto.h"
 #include "modbus_config.h"
 
+/* 常量定义 ------------------------------------------------------------------*/
+/* PDU帧长最大值 */
+#define MB_PDU_SIZE_MAX                 ( 253 )
+/* PDU帧长最小值 */
+#define MB_PDU_SIZE_MIN                 ( 1 )
+/* PDU功能码偏移 */
+#define MB_PDU_FUNC_OFF                 ( 0 )
+/* PDU数据域偏移 */
+#define MB_PDU_DATA_OFF                 ( 1 )
+
 /* 从机处理函数 --------------------------------------------------------------*/
 /* Modbus Slave处理函数 */
 eMBException MBSlaveFuncHandle(uint8_t *pFrame, uint16_t *pLength);
