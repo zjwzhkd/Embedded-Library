@@ -98,7 +98,7 @@ void MBRTUTransmit(uint8_t slaveAddr, uint8_t const *pFrame, uint16_t length)
 {
 uint16_t adu_crc16;
 
-    ((void)pFrame);
+    libAssert(pFrame == &rtu_adu_buf[MB_RTU_ADU_PDU_OFF]);
     rtu_adu_buf[MB_RTU_ADU_ADDR_OFF] = slaveAddr;
     length++;
     adu_crc16 = modbus_crc16(rtu_adu_buf, length);
