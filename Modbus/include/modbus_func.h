@@ -10,6 +10,7 @@
 #define __MODBUS_FUNC_H
 
 /* 头文件 --------------------------------------------------------------------*/
+#include "modbus.h"
 #include "modbus_proto.h"
 #include "modbus_config.h"
 
