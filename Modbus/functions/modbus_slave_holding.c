@@ -141,6 +141,7 @@ uint16_t reg_addr;
         }
         else
         {
+            /*响应帧与请求帧一致*/
             ex_code = MB_EX_NONE;
         }
     }
@@ -193,6 +194,7 @@ uint8_t  byte_count;
             }
             else
             {
+                /*从写入字节数量域处, 截断请求帧, 生成响应帧*/
                 *pLength = MB_PDU_FUNC_WRITE_MUL_BYTECNT_OFF;
                 ex_code = MB_EX_NONE;
             }
