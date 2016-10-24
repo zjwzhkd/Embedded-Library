@@ -41,7 +41,7 @@ eMBError modbus_SlaveDeal(uint8_t *buffer, uint16_t *length);
 /**
  * Modbus Slave保持寄存器读写回调函数
  *
- * @param regBuf: Modbus协议栈提供的缓存地址
+ * @param regBuf: Modbus上层协议栈提供的缓存地址
  *
  * @param startAddr: 回调函数需要处理的寄存器的起始地址, 这里指协议地址(从0开始)
  *
@@ -60,6 +60,24 @@ eMBError modbus_SlaveDeal(uint8_t *buffer, uint16_t *length);
  */
 eMBError modbus_SlaveRegHoldingCB(uint8_t *regBuf, uint16_t startAddr,
                                   uint16_t nRegs, eMBRegisterMode mode);
+
+/**
+ * Modbus Slave输入寄存器读回调函数
+ *
+ * @param regBuf: Modbus上层协议栈提供的缓存地址
+ *
+ * @param startAddr: 回调函数需要处理的寄存器的起始地址, 这里指协议地址(从0开始)
+ *
+ * @param nRegs: 回调函数需要处理的寄存器的数量
+ *
+ * @return: MB_OK          - 没有错误发生
+ *          MB_ERR_NOREG   - 协议栈提供的地址范围超出应用层的处理范围,
+ *                           将导致MB_EX_ILLEGAL_DATA_ADDRESS异常响应
+ *          MB_ERR_TIMEOUT - 请求的寄存器还未完成准备, 需要延后处理,
+ *                           将导致MB_EX_SERVER_DEVICE_BUSY异常响应
+ *          MB_ERR_IO      - 发生了一个无法恢复的错误, 将导致
+ *                           MB_EX_SERVER_DEVICE_FAILURE异常响应
+ */
 eMBError modbus_SlaveRegInputCB(uint8_t *regBuf, uint16_t startAddr,
                                 uint16_t nRegs);
 eMBError modbus_SlaveRegCoilsCB(uint8_t *regBuf, uint16_t startAddr,
