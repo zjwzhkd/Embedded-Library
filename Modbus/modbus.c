@@ -138,6 +138,8 @@ uint8_t func_code;
     }
 #else   /* MB_SLAVE_FUNC_ERROR_EN */
     {
+        ((void)ex_code);
+        ((void)func_code);
         status = MB_ERR_IGNORED;
     }
 #endif  /* MB_SLAVE_FUNC_ERROR_EN */
