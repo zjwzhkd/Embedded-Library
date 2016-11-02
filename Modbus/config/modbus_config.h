@@ -33,4 +33,4 @@
 /* 从机异常响应功能 */
 #define MB_SLAVE_FUNC_ERROR_EN                              ( 1 )
 
-#endif
+#endif  /* __MODBUS_CONFIG_H */

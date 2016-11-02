@@ -17,4 +17,4 @@ void MBRTUInit(uint8_t *pBuf, uint16_t *pBufLen);
 bool MBRTUReceive(uint8_t *pRcvAddr, uint8_t **pFrame, uint16_t *pLength);
 void MBRTUTransmit(uint8_t slaveAddr, uint8_t const *pFrame, uint16_t length);
 
-#endif
+#endif  /* __MODBUS_RTU_H */

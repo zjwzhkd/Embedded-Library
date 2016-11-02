@@ -15,4 +15,4 @@
 /* 函数定义 ------------------------------------------------------------------*/
 uint16_t modbus_crc16(uint8_t *pFrame, uint16_t length);
 
-#endif
+#endif  /* __MODBUS_CRC16_H */
