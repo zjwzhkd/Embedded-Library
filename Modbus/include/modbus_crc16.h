@@ -13,6 +13,6 @@
 #include "modbus_proto.h"
 
 /* 函数定义 ------------------------------------------------------------------*/
-uint16_t modbus_crc16(uint8_t *pFrame, uint16_t length);
+uint16_t libModbusCrc16(uint8_t *pFrame, uint16_t length);
 
 #endif  /* __MODBUS_CRC16_H */

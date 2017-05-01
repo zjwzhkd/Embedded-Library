@@ -65,7 +65,7 @@ uint8_t *resp_frame;
             *resp_frame++ = (uint8_t)(reg_count<<1);
             *pLength += 1;
             /*读输入寄存器*/
-            reg_status = modbus_SlaveRegInputCB(resp_frame, reg_addr, reg_count);
+            reg_status = libModbusSlaveRegInputCB(resp_frame, reg_addr, reg_count);
             if (MB_OK != reg_status)
             {
                 ex_code = MBError2MBException(reg_status);

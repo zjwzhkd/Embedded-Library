@@ -107,7 +107,7 @@ uint8_t *resp_frame;
             *resp_frame++ = (uint8_t)(reg_count<<1);
             *pLength += 1;
             /*读保持寄存器*/
-            reg_status = modbus_SlaveRegHoldingCB(resp_frame, reg_addr, reg_count, MB_REG_READ);
+            reg_status = libModbusSlaveRegHoldingCB(resp_frame, reg_addr, reg_count, MB_REG_READ);
             if (MB_OK != reg_status)
             {
                 ex_code = MBError2MBException(reg_status);
@@ -153,7 +153,7 @@ uint16_t reg_addr;
         reg_addr  = (uint16_t)(pFrame[MB_PDU_FUNC_WRITE_ADDR_OFF] << 8);
         reg_addr |= (uint16_t)(pFrame[MB_PDU_FUNC_WRITE_ADDR_OFF + 1]);
         /*写保持寄存器*/
-        reg_status = modbus_SlaveRegHoldingCB(&pFrame[MB_PDU_FUNC_WRITE_VALUE_OFF],
+        reg_status = libModbusSlaveRegHoldingCB(&pFrame[MB_PDU_FUNC_WRITE_VALUE_OFF],
                                                reg_addr, 1, MB_REG_WRITE);
         if (MB_OK != reg_status)
         {
@@ -206,7 +206,7 @@ uint8_t  byte_count;
              (*pLength == (MB_PDU_DATA_OFF + MB_PDU_FUNC_WRITE_MUL_SIZE_MIN + 2*reg_count)) )
         {
             /*写保持寄存器*/
-            reg_status = modbus_SlaveRegHoldingCB(&pFrame[MB_PDU_FUNC_WRITE_MUL_VALUES_OFF],
+            reg_status = libModbusSlaveRegHoldingCB(&pFrame[MB_PDU_FUNC_WRITE_MUL_VALUES_OFF],
                                                    reg_addr, reg_count, MB_REG_WRITE);
             if (MB_OK != reg_status)
             {
@@ -270,7 +270,7 @@ uint8_t *resp_frame;
              (*pLength == (MB_PDU_DATA_OFF + MB_PDU_FUNC_READWRITE_SIZE_MIN + 2*write_count)) )
         {
             /*写保持寄存器*/
-            reg_status = modbus_SlaveRegHoldingCB(&pFrame[MB_PDU_FUNC_READWRITE_WRITE_VALUES_OFF],
+            reg_status = libModbusSlaveRegHoldingCB(&pFrame[MB_PDU_FUNC_READWRITE_WRITE_VALUES_OFF],
                                                    write_addr, write_count, MB_REG_WRITE);
             /*写入成功, 则开始读保持寄存器*/
             if (MB_OK == reg_status)
@@ -285,7 +285,7 @@ uint8_t *resp_frame;
                 *resp_frame++ = (uint8_t)(read_count<<1);
                 *pLength += 1;
                 /*读取保持寄存器*/
-                reg_status = modbus_SlaveRegHoldingCB(resp_frame, read_addr, read_count, MB_REG_READ);
+                reg_status = libModbusSlaveRegHoldingCB(resp_frame, read_addr, read_count, MB_REG_READ);
                 /*读取成功*/
                 if (MB_OK == reg_status)
                 {

@@ -24,7 +24,7 @@
  * @return: MB_OK - 初始化成功
  *          MB_ERR_INVAL - 无效的参数
  */
-eMBError modbus_SlaveInit(eMBMode mode, uint8_t slaveAddr);
+eMBError libModbusSlaveInit(eMBMode mode, uint8_t slaveAddr);
 
 /**
  * Modbus Slave处理函数
@@ -36,7 +36,7 @@ eMBError modbus_SlaveInit(eMBMode mode, uint8_t slaveAddr);
  * @return: MB_OK - 缓冲内已经准备好响应帧
  *          MB_ERR_IGNORED - 从机不响应
  */
-eMBError modbus_SlaveDeal(uint8_t *buffer, uint16_t *length);
+eMBError libModbusSlaveDeal(uint8_t *buffer, uint16_t *length);
 
 /* 回调函数 ------------------------------------------------------------------*/
 /**
@@ -59,8 +59,8 @@ eMBError modbus_SlaveDeal(uint8_t *buffer, uint16_t *length);
  *          MB_ERR_IO      - 发生了一个无法恢复的错误, 将导致
  *                           MB_EX_SERVER_DEVICE_FAILURE异常响应
  */
-eMBError modbus_SlaveRegHoldingCB(uint8_t *regBuf, uint16_t startAddr,
-                                  uint16_t nRegs, eMBRegisterMode mode);
+eMBError libModbusSlaveRegHoldingCB(uint8_t *regBuf, uint16_t startAddr,
+                                uint16_t nRegs, eMBRegisterMode mode);
 
 /**
  * Modbus Slave输入寄存器读回调函数
@@ -79,7 +79,7 @@ eMBError modbus_SlaveRegHoldingCB(uint8_t *regBuf, uint16_t startAddr,
  *          MB_ERR_IO      - 发生了一个无法恢复的错误, 将导致
  *                           MB_EX_SERVER_DEVICE_FAILURE异常响应
  */
-eMBError modbus_SlaveRegInputCB(uint8_t *regBuf, uint16_t startAddr,
+eMBError libModbusSlaveRegInputCB(uint8_t *regBuf, uint16_t startAddr,
                                 uint16_t nRegs);
 
 /**
@@ -104,7 +104,7 @@ eMBError modbus_SlaveRegInputCB(uint8_t *regBuf, uint16_t startAddr,
  *          MB_ERR_IO      - 发生了一个无法恢复的错误, 将导致
  *                           MB_EX_SERVER_DEVICE_FAILURE异常响应
  */
-eMBError modbus_SlaveRegCoilsCB(uint8_t *regBuf, uint16_t startAddr,
+eMBError libModbusSlaveRegCoilsCB(uint8_t *regBuf, uint16_t startAddr,
                                 uint16_t nCoils, eMBRegisterMode mode);
 
 /**
@@ -126,7 +126,7 @@ eMBError modbus_SlaveRegCoilsCB(uint8_t *regBuf, uint16_t startAddr,
  *          MB_ERR_IO      - 发生了一个无法恢复的错误, 将导致
  *                           MB_EX_SERVER_DEVICE_FAILURE异常响应
  */
-eMBError modbus_SlaveRegDiscreteCB(uint8_t *regBuf, uint16_t startAddr,
-                                   uint16_t nDiscrete);
+eMBError libModbusSlaveRegDiscreteCB(uint8_t *regBuf, uint16_t startAddr,
+                                uint16_t nDiscrete);
 
 #endif  /* __MODBUS_H */

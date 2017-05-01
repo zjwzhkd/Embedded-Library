@@ -96,7 +96,7 @@ uint8_t *resp_frame;
             *resp_frame++ = byte_count;
             *pLength += 1;
             /*读线圈*/
-            reg_status = modbus_SlaveRegCoilsCB(resp_frame, coil_addr, coil_count, MB_REG_READ);
+            reg_status = libModbusSlaveRegCoilsCB(resp_frame, coil_addr, coil_count, MB_REG_READ);
             if (MB_OK != reg_status)
             {
                 ex_code = MBError2MBException(reg_status);
@@ -157,7 +157,7 @@ uint8_t  coil_buf[2];
                 coil_buf[0] = 0;
             }
             /*写线圈*/
-            reg_status = modbus_SlaveRegCoilsCB(&coil_buf[0], coil_addr, 1, MB_REG_WRITE);
+            reg_status = libModbusSlaveRegCoilsCB(&coil_buf[0], coil_addr, 1, MB_REG_WRITE);
             if (MB_OK != reg_status)
             {
                 ex_code = MBError2MBException(reg_status);
@@ -221,7 +221,7 @@ uint8_t  byte_count, byte_count_verify;
             (*pLength == (MB_PDU_DATA_OFF + MB_PDU_FUNC_WRITE_MUL_SIZE_MIN + (uint16_t)byte_count)))
         {
             /*写线圈*/
-            reg_status = modbus_SlaveRegCoilsCB(&pFrame[MB_PDU_FUNC_WRITE_MUL_VALUES_OFF],
+            reg_status = libModbusSlaveRegCoilsCB(&pFrame[MB_PDU_FUNC_WRITE_MUL_VALUES_OFF],
                                                  coil_addr, coil_count, MB_REG_WRITE);
             if (MB_OK != reg_status)
             {

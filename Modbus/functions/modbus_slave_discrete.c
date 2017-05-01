@@ -75,7 +75,7 @@ uint8_t *resp_frame;
             *resp_frame++ = byte_count;
             *pLength += 1;
             /*读离散量输入*/
-            reg_status = modbus_SlaveRegDiscreteCB(resp_frame, disc_addr, disc_count);
+            reg_status = libModbusSlaveRegDiscreteCB(resp_frame, disc_addr, disc_count);
             if (MB_OK != reg_status)
             {
                 ex_code = MBError2MBException(reg_status);

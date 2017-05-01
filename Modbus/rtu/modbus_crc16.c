@@ -99,7 +99,7 @@ static uint8_t const FLASH_DATA tblCRCLo[] =
  *
  * @return: crc16校验值
  */
-uint16_t modbus_crc16(uint8_t *pFrame, uint16_t length)
+uint16_t libModbusCrc16(uint8_t *pFrame, uint16_t length)
 {
 uint16_t CRC16;
 uint8_t  index;

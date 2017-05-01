@@ -73,7 +73,7 @@ uint16_t adu_crc16;
     if ((adu_len >= MB_RTU_ADU_SIZE_MIN) && (adu_len <= MB_RTU_ADU_SIZE_MAX))
     {
         adu_crc16 = (uint16_t)(adu_frame[adu_len-1]<<8) + adu_frame[adu_len-2];
-        if (adu_crc16 == modbus_crc16(adu_frame, adu_len-MB_RTU_ADU_SIZE_CRC))
+        if (adu_crc16 == libModbusCrc16(adu_frame, adu_len-MB_RTU_ADU_SIZE_CRC))
         {
             *pRcvAddr = adu_frame[MB_RTU_ADU_ADDR_OFF];
             *pFrame = &adu_frame[MB_RTU_ADU_PDU_OFF];
@@ -101,7 +101,7 @@ uint16_t adu_crc16;
     libAssert(pFrame == &rtu_adu_buf[MB_RTU_ADU_PDU_OFF]);
     rtu_adu_buf[MB_RTU_ADU_ADDR_OFF] = slaveAddr;
     length++;
-    adu_crc16 = modbus_crc16(rtu_adu_buf, length);
+    adu_crc16 = libModbusCrc16(rtu_adu_buf, length);
     rtu_adu_buf[length++] = adu_crc16 & 0xff;
     rtu_adu_buf[length++] = adu_crc16 >> 8;
     *rtu_adu_plen = length;

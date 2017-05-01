@@ -32,7 +32,7 @@ static eMBError prvSlavePDUHandle(uint8_t *pPDUFrame, uint16_t *pPDULength);
  * @return: MB_OK - 初始化成功
  *          MB_ERR_INVAL - 无效的参数
  */
-eMBError modbus_SlaveInit(eMBMode mode, uint8_t slaveAddr)
+eMBError libModbusSlaveInit(eMBMode mode, uint8_t slaveAddr)
 {
 eMBError status = MB_OK;
 
@@ -60,7 +60,7 @@ eMBError status = MB_OK;
  * @return: MB_OK - 缓冲内已经准备好响应帧
  *          MB_ERR_IGNORED - 从机不响应
  */
-eMBError modbus_SlaveDeal(uint8_t *buffer, uint16_t *length)
+eMBError libModbusSlaveDeal(uint8_t *buffer, uint16_t *length)
 {
 eMBError status = MB_ERR_IGNORED;
 uint8_t *pdu_frame;
