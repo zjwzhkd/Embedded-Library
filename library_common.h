@@ -16,6 +16,6 @@
 #include <stdbool.h>
 
 /* 宏定义 --------------------------------------------------------------------*/
-#define libAssert(expr)         debug_assert(expr)
+#define libAssert(expr)         CPU_Assert(expr)
 
 #endif  /* __LIBRARY_COMMON_H */
