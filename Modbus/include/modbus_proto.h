@@ -61,7 +61,7 @@ typedef eMBException (*MBSlaveFuncHandler) (uint8_t *pFrame, uint16_t *pLength);
 /* Modbus设备地址 */
 #define MB_ADDRESS_BROADCAST                    ( 0 )
 #define MB_ADDRESS_MIN                          ( 1 )
-#define MB_ADDRRSS_MAX                          ( 247 )
+#define MB_ADDRESS_MAX                          ( 247 )
 
 /* Modbus功能码 */
 #define MB_FUNC_READ_COILS                      ( 0x01 )

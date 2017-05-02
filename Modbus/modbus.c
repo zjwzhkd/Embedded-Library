@@ -37,7 +37,7 @@ eMBError libModbusSlaveInit(eMBMode mode, uint8_t slaveAddr)
 eMBError status = MB_OK;
 
     if ((MB_ADDRESS_BROADCAST == slaveAddr) || (slaveAddr < MB_ADDRESS_MIN) ||
-        (slaveAddr > MB_ADDRRSS_MAX))
+        (slaveAddr > MB_ADDRESS_MAX))
     {
         status = MB_ERR_INVAL;
     }
