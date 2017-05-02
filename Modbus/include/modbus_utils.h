@@ -25,7 +25,7 @@
  *
  * @param value: 待修改的位新值, bitOffset指向的位新值是value的LSB位值
  */
-void modbus_UtilSetBits(uint8_t *byteBuf, uint16_t bitOffset, uint8_t nBits, uint8_t value);
+void libModbusUtilSetBits(uint8_t *byteBuf, uint16_t bitOffset, uint8_t nBits, uint8_t value);
 
 /**
  * 本函数通过数组来实现位域读取操作, 一次操作最多读取8位
@@ -38,6 +38,6 @@ void modbus_UtilSetBits(uint8_t *byteBuf, uint16_t bitOffset, uint8_t nBits, uin
  *
  * @return: 读取的位值, 返回结果的LSB位值是bitOffset指向的位值
  */
-uint8_t modbus_UtilGetBits(uint8_t *byteBuf, uint16_t bitOffset, uint8_t nBits);
+uint8_t libModbusUtilGetBits(uint8_t *byteBuf, uint16_t bitOffset, uint8_t nBits);
 
 #endif  /* __MODBUS_UTILS_H */
